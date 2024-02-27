@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
     //create variables that we need
@@ -17,53 +17,44 @@ export default function Register() {
         // The object sent in the request body
         axios.post('http://127.0.0.1:8000/api/user', { name: name, email: email, password: password });
         // navigate to the '/chatpage' route.
-        navigate('/chatpage');
+        navigate('/home');
     }
     return (
-        <>
-            <section className="vh-100">
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col-md-8">
-                            <div className="card shadow-lg p-3 mb-4  rounded" style={{ backgroundColor: "#f5f3f4" }}>
-                                <div className="card-header p-3 text-center" style={{ backgroundColor: "#b298dc" }}>
-                                    <h5 className="mb-0 ">
-                                        register Form
-                                    </h5>
-                                </div>
-                                <div className="card-body">
-                                    <form onSubmit={storeUser}>
-                                        <div className="form-group row">
-                                            <label className="col-sm-2 col-form-label">Your Name </label>
-                                            <div className="col-sm-10">
-                                                <input className='form-control' type="text" onChange={(e) => setName(e.target.value)} required />
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div className="form-group row">
-                                            <label className="col-sm-2 col-form-label">Your Email </label>
-                                            <div className="col-sm-10">
-                                                <input className='form-control' type="text" onChange={(e) => setEmail(e.target.value)} required />
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div className="form-group row">
-                                            <label className="col-sm-2 col-form-label" >Your Password</label>
-                                            <div className="col-sm-10">
-                                                <input className='form-control' type="password" onChange={(e) => setPassword(e.target.value)} required />
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div className="col-md-12 d-flex justify-content-center align-items-center">
-                                            <button type="submit" className='btn btn-info col-sm-4 text-center float'>Register</button>
-                                        </div>
-                                    </form>
-                                </div>
+        <section className='vh-100'>
+            <div className="container h-100">
+                <div className="row justify-content-center h-100  align-items-center">
+                    <div className="col-md-6">
+                        <div className="card">
+                            <div className="card-body">
+                                <h2 className="card-title text-center mb-4 text-primary">Chat App</h2>
+                                {/* <form onSubmit={storeUser}> */}
+                                <form>
+                                    <div className="mb-3">
+                                        <input type="text" className="form-control" placeholder="Name" required onChange={(e) => setName(e.target.value)} />
+                                    </div>
+                                    <div className="mb-3">
+                                        <input type="email" className="form-control" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+                                    </div>
+                                    <div className="mb-3">
+                                        <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                                    </div>
+                                    <div className="mb-3">
+                                        <input type="file" id="file" style={{ display: "none" }} />
+                                        <label htmlFor="file" className="d-flex align-items-center">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/4211/4211763.png" alt="" className="mr-2" width="30px" height="30px"/>
+                                            <span>Add an avatar</span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" className="btn btn-primary w-100">
+                                        Sign Up
+                                    </button>
+                                </form>
+                                <p className="mt-3">Already have an account? <Link to="/">Login</Link></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section >
-        </>
+            </div>
+        </section>
     )
 };
