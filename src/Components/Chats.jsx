@@ -29,17 +29,6 @@ export default function Chats() {
                 <div className="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
                     <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="user Avatar" width='40px' height='100%'></img>
                     <input type="text" class="form-control form-control-lg" placeholder="Type message" />
-                    <ul class="example-1">
-                        <li class="icon-content">
-                            <a
-                                class="link"
-                                data-social="images"
-                                href="image.png"
-                            >
-                            </a>
-                        </li>
-                    </ul>
-
                 </div>
             </div>
         </>
