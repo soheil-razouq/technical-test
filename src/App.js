@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+    // create routes
           <Route path="/" element={<Login />}></Route>
           <Route path='/Register' element={<Register />} />
           <Route path="/home" element={<Home />} />
